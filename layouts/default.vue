@@ -1,9 +1,11 @@
 <script setup></script>
 
 <template>
-  <div class="flex">
+  <div class="">
     <CoreSidebar />
-    <main class="flex-1 p-6 font-inter !bg-primary !text-primaryText">
+    <main
+      class="w-[calc(100%-theme(spacing.sidebar))] ms-auto p-6 !bg-primary !text-primaryText"
+    >
       <slot />
     </main>
   </div>

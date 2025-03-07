@@ -1,5 +1,7 @@
 <template>
-  <aside class="w-60 h-screen bg-sidebar text-primaryText flex flex-col">
+  <aside
+    class="w-[theme(spacing.sidebar)] fixed top-0 h-dvh bg-sidebar text-primaryText flex flex-col"
+  >
     <!-- Logo -->
     <div class="p-4 text-xl font-bold flex items-center">
       <!-- <img src="/logo.png" alt="Logo" class="h-10 w-10 mr-2" /> -->
@@ -26,6 +28,7 @@
 </template>
 
 <script setup>
+const config = useRuntimeConfig();
 const menuItems = [
   { name: "Home", icon: "home", link: "/" },
   { name: "Resources", icon: "book-open", link: "/resources" },

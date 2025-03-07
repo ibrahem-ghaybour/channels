@@ -12,4 +12,9 @@ export default defineNuxtConfig({
     display: "swap",
     preload: true,
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NUXT_GLOPAL_API_URL,
+    },
+  },
 });

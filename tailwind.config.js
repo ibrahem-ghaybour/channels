@@ -19,6 +19,9 @@ export default {
         inter: ["Inter", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
       },
+      spacing: {
+        sidebar: "14rem",
+      },
     },
   },
   plugins: [],
