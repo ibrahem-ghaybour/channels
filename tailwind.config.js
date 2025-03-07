@@ -7,7 +7,19 @@ export default {
     "./app.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "var(--primary)",
+        primaryText: "var(--primaryText)",
+      },
+      backgroundColor: {
+        sidebar: "var(--sidebar)",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
