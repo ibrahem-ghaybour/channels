@@ -1,13 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // app: {
+  //   pageTransition: { name: "fade", mode: "out-in" },
+  // },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   css: ["~/assets/scss/main.scss"],
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
-    "@nuxtjs/google-fonts",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   googleFonts: {
     families: {
       Inter: [400, 500, 700],

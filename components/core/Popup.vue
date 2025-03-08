@@ -8,13 +8,18 @@
       <Transition name="popup">
         <div
           v-if="isOpen"
-          class="bg-white p-8 rounded-xl relative max-w-[90%] max-h-[90vh] overflow-y-auto shadow-lg"
+          :class="[
+            `bg-primary ov p-8 rounded-xl relative overflow-y-auto shadow-lg ${
+              parentClass ? '' : 'max-w-[90%] max-h-[90vh]'
+            }`,
+            parentClass,
+          ]"
         >
           <button
             @click="close"
-            class="absolute top-4 right-4 text-2xl leading-none hover:text-black text-gray-500 transition-colors duration-200"
+            class="absolute top-2 right-2 text-2xl leading-none hover:opacity-40 opacity-60 text-primaryText transition-colors duration-200"
           >
-            ×
+            <font-awesome-icon icon="circle-xmark" />
           </button>
           <slot></slot>
         </div>
@@ -24,10 +29,19 @@
 </template>
 
 <script setup>
+// <i class="fa-regular fa-circle-xmark"></i>
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+library.add(faCircleXmark);
 const props = defineProps({
   isOpen: {
     type: Boolean,
     default: false,
+  },
+  parentClass: {
+    type: String,
+    default: "",
   },
 });
 
@@ -59,7 +73,7 @@ const close = () => {
 .popup-enter-from,
 .popup-leave-to {
   opacity: 0;
-  transform: scale(0.5);
+  transform: scale(2);
 }
 
 .popup-enter-to,

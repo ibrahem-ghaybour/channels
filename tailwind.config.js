@@ -14,6 +14,7 @@ export default {
       },
       backgroundColor: {
         sidebar: "var(--sidebar)",
+        input: "var(--input)",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

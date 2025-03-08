@@ -18,7 +18,7 @@
           :key="item.id"
         >
           <NuxtLink :to="`/${item.id}`" class="w-full p-2 rounded-[5px]">
-            <span class="mr-3">
+            <span class="mr-3 opacity-60">
               <font-awesome-icon
                 :icon="`${item?.icon ? item?.icon : 'comment-dots'}`"
               />
@@ -26,8 +26,8 @@
             {{ item.name }}
           </NuxtLink>
           <div
-            @click="console.log('dslkfj')"
-            class="absolute  right-1 opacity-50 transition duration-200 hidden group-hover:block"
+            @click="showSetting = true"
+            class="absolute right-1 opacity-50 transition duration-200 hidden group-hover:block"
           >
             <CoreTooltip :data-tooltip="'Edit Channel'">
               <font-awesome-icon icon="gear" />
@@ -37,6 +37,14 @@
       </ul>
     </nav>
   </aside>
+  <CorePopup
+    v-model:is-open="showSetting"
+    :parentClass="'!w-full !h-dvh !rounded-none'"
+  >
+    <div class="lg:w-[50%] md:w-[70%] mx-auto">
+      <ChannelEdit />
+    </div>
+  </CorePopup>
 </template>
 
 <script setup>
@@ -44,6 +52,7 @@ import { faCommentDots, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faCommentDots, faGear);
+const showSetting = ref(false);
 const groupStore = useGroupStore();
 const groups = computed(() => groupStore.groupsArray);
 onMounted(async () => {

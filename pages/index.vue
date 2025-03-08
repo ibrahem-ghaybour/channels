@@ -9,6 +9,64 @@
     <CorePopup v-model:isOpen="showPopup">
       <h2>Welcome to Lil Pop Up Village!</h2>
       <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
+      <h2>Welcome to Lil Pop Up Village!</h2>
+      <p>This is your popup content.</p>
     </CorePopup>
 
     <button @click="showPopup = true">Open Popup</button>

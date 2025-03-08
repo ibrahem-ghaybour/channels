@@ -3,4 +3,31 @@
   --sidebar: #2b2d31;
   --primary: #313338;
   --primaryText: #dbdee1;
+  --input: #1e1f22;
+}
+/* تخصيص الـ Scrollbar لكل الصفحة باستخدام SCSS */
+* {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    @apply rounded-xl bg-sidebar;
+    &:hover {
+      background-color: #555;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    // background-color: #222;
+    @apply bg-primary my-[20px];
+  }
+}
+body {
+  @apply text-primaryText bg-primary;
+  input,
+  textarea {
+    @apply bg-input outline-none py-2 px-3;
+  }
 }
