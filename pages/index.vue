@@ -5,7 +5,6 @@
       repellendus nihil, ducimus incidunt tempora sequi explicabo quae veritatis
       soluta quis debitis quia optio qui repudiandae possimus voluptatibus
       veniam officia!
-      {{ groups }}
     </h1>
     <CorePopup v-model:isOpen="showPopup">
       <h2>Welcome to Lil Pop Up Village!</h2>
@@ -18,10 +17,9 @@
 
 <script setup>
 const showPopup = ref(false);
-const groupStore = useGroupStore();
-const { groups } = storeToRefs(groupStore);
-onMounted(async () => {
-  groupStore.fetchGroups();
+useHead({
+  title: "Discord ibrahim",
+  description: "The design of Wi-Fi is somewhat similar to Discord.",
 });
 </script>
 

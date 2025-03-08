@@ -20,7 +20,7 @@ export default {
         roboto: ["Roboto", "sans-serif"],
       },
       spacing: {
-        sidebar: "14rem",
+        sidebar: "13rem",
       },
     },
   },

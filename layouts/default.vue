@@ -12,5 +12,5 @@
 </template>
 
 <style scoped>
-/* Custom Scrollbar */
+
 </style>

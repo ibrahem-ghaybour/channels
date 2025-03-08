@@ -11,16 +11,28 @@
     <!-- Menu Items -->
     <nav class="flex-1">
       <ul class="px-2">
-        <li v-for="item in menuItems" :key="item.name">
-          <NuxtLink
-            :to="item.link"
-            class="flex items-center p-2 rounded-[5px] hover:bg-[#404249] transition duration-200"
-          >
+        <li
+          @click.self="console.log('')"
+          class="relative group my-1 hover:bg-[#404249] transition duration-200 flex items-center rounded-[5px]"
+          v-for="item in groups"
+          :key="item.id"
+        >
+          <NuxtLink :to="`/${item.id}`" class="w-full p-2 rounded-[5px]">
             <span class="mr-3">
-              <Icon :name="item.icon" class="w-5 h-5" />
+              <font-awesome-icon
+                :icon="`${item?.icon ? item?.icon : 'comment-dots'}`"
+              />
             </span>
             {{ item.name }}
           </NuxtLink>
+          <div
+            @click="console.log('dslkfj')"
+            class="absolute  right-1 opacity-50 transition duration-200 hidden group-hover:block"
+          >
+            <CoreTooltip :data-tooltip="'Edit Channel'">
+              <font-awesome-icon icon="gear" />
+            </CoreTooltip>
+          </div>
         </li>
       </ul>
     </nav>
@@ -28,22 +40,15 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig();
-const menuItems = [
-  { name: "Home", icon: "home", link: "/" },
-  { name: "Resources", icon: "book-open", link: "/resources" },
-  { name: "Showcase", icon: "image", link: "/showcase" },
-  { name: "Hiring", icon: "briefcase", link: "/hiring" },
-  { name: "Help", icon: "help-circle", link: "/help" },
-];
+import { faCommentDots, faGear } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+library.add(faCommentDots, faGear);
+const groupStore = useGroupStore();
+const groups = computed(() => groupStore.groupsArray);
+onMounted(async () => {
+  groupStore.fetchGroups();
+});
 </script>
 
-<style lang="scss" scoped>
-aside::-webkit-scrollbar {
-  width: 5px;
-}
-aside::-webkit-scrollbar-thumb {
-  background: #4a5568;
-  border-radius: 10px;
-}
-</style>
+<style lang="scss" scoped></style>

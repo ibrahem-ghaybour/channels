@@ -3,7 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   css: ["~/assets/scss/main.scss"],
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
+    "@nuxtjs/google-fonts",
+  ],
   googleFonts: {
     families: {
       Inter: [400, 500, 700],
@@ -18,3 +22,5 @@ export default defineNuxtConfig({
     },
   },
 });
+// <font-awesome-icon :icon="['fab', 'rocketchat']" />
+// npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/vue-fontawesome
