@@ -12,7 +12,6 @@
       :value="modelValue"
       @input="emit('update:modelValue', $event.target.value)"
     />
-    {{ modelValue }}
   </div>
 </template>
 

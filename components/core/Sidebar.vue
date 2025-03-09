@@ -3,10 +3,7 @@
     class="w-[theme(spacing.sidebar)] fixed top-0 h-dvh bg-sidebar text-primaryText flex flex-col"
   >
     <!-- Logo -->
-    <div class="p-4 text-xl font-bold flex items-center">
-      <!-- <img src="/logo.png" alt="Logo" class="h-10 w-10 mr-2" /> -->
-      Nuxt Community
-    </div>
+    <div class="p-4 text-xl font-bold flex items-center">Nuxt Community</div>
 
     <!-- Menu Items -->
     <nav class="flex-1">
@@ -26,7 +23,7 @@
             {{ item.name }}
           </NuxtLink>
           <div
-            @click="showSetting = true"
+            @click="openSettings(item.id)"
             class="absolute right-1 opacity-50 transition duration-200 hidden group-hover:block"
           >
             <CoreTooltip :data-tooltip="'Edit Channel'">
@@ -37,12 +34,13 @@
       </ul>
     </nav>
   </aside>
+
   <CorePopup
     v-model:is-open="showSetting"
     :parentClass="'!w-full !h-dvh !rounded-none'"
   >
     <div class="lg:w-[50%] md:w-[70%] mx-auto">
-      <ChannelEdit />
+      <ChannelEdit :groupId="selectedGroupId" />
     </div>
   </CorePopup>
 </template>
@@ -52,9 +50,18 @@ import { faCommentDots, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faCommentDots, faGear);
+
 const showSetting = ref(false);
+const selectedGroupId = ref(null);
 const groupStore = useGroupStore();
 const groups = computed(() => groupStore.groupsArray);
+
+const openSettings = (id) => {
+  console.log(id)
+  selectedGroupId.value = id;
+  showSetting.value = true;
+};
+
 onMounted(async () => {
   groupStore.fetchGroups();
 });
