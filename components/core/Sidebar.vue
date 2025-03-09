@@ -18,11 +18,11 @@
       <ul v-else class="px-2">
         <li
           @click.self="console.log('')"
-          class="relative group my-1 hover:bg-[#404249] transition duration-200 flex items-center rounded-[5px]"
+          class="relative group my-1  w-full hover:bg-[#404249] transition duration-200 flex items-center rounded-[5px]"
           v-for="item in groups"
           :key="item.id"
         >
-          <NuxtLink :to="`/${item.id}`" class="w-full p-2 rounded-[5px]">
+          <NuxtLink :to="`/${item.id}`" class="w-full p-2 rounded-[5px] truncate">
             <span class="mr-3 opacity-60">
               <font-awesome-icon
                 :icon="`${item?.icon ? item?.icon : 'comment-dots'}`"

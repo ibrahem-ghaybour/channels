@@ -1,0 +1,22 @@
+.ql-editor.ql-blank::before {
+    color: #888; /* placeholder text color */
+  }
+  .ql-editor h1 {
+    font-size: 2em;
+  }
+  .ql-editor h2 {
+    font-size: 1.5em;
+  }
+  .ql-editor ol {
+    list-style-type: decimal;
+  }
+  .ql-editor ul {
+    list-style-type: disc;
+  }
+  .multiline-truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines before cutoff */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  

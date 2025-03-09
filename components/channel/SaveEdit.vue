@@ -11,13 +11,14 @@
       >
         Reset
       </button>
-      <button
+      <CoreButton type="button" @click="emit('save')">Save Changes </CoreButton>
+      <!-- <button
         type="button"
         @click="emit('save')"
         class="bg-[#248045] px-2 py-2 rounded-md hover:bg-green-700 transition"
       >
         Save Changes
-      </button>
+      </button> -->
     </div>
   </div>
 </template>

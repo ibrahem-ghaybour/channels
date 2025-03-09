@@ -22,6 +22,7 @@ export const useGroupStore = defineStore("group", {
         method: "GET",
       });
       this.loading = false;
+      this.groups.clear();
       this.groups = new Map(groupList.map((group) => [group.id, group]));
     },
     async updateGroup(id: string, body: Partial<Group>) {

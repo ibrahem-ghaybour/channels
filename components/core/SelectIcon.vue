@@ -1,5 +1,16 @@
 <template>
-  <div class="relative w-full">
+  <div
+    class="relative group rounded-sm w-full bg-input overflow-hidden before:absolute before:w-12 before:h-12 before:content[''] before:right-0 before:rounded-full before:blur-lg before:[box-shadow:-60px_20px_10px_10px_#F9B0B9] !border-none"
+  >
+    <select
+      class="appearance-none relative bg-input !border-none ring-0 outline-none text-sm font-bold rounded-lg block w-full p-2.5"
+    >
+      <option v-for="(option, index) in options" :key="index" :value="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+  <!-- <div class="relative w-full">
     <button
       @click="open = !open"
       class="w-full bg-input p-3 rounded-sm flex justify-between items-center"
@@ -23,7 +34,7 @@
         {{ option }}
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -43,6 +54,4 @@ const selectOption = (option) => {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

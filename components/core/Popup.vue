@@ -45,10 +45,11 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:isOpen"]);
+const emit = defineEmits(["update:isOpen", "close"]);
 
 const close = () => {
   emit("update:isOpen", false);
+  emit("close");
 };
 </script>
 

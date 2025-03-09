@@ -1,22 +1,28 @@
-<template>
-  <div class="w-full">
-    <Blog />
-  </div>
-</template>
-
 <script setup>
-const blogsStore = useBlogsStore();
-const route = useRoute();
-onMounted(() => {
-  blogsStore.fetchBlogs(route.params.group);
-});
 useHead({
   title: "Group",
   description: "The design of Wi-Fi is somewhat similar to Discord./group",
 });
-onBeforeUnmount(() => {
-  blogsStore.clearBlogs();
+
+const route = useRoute();
+const { fetchBlogs, clearBlogs } = useBlogsStore();
+
+const blogsLyst = ref([]);
+onMounted(async () => {
+  clearBlogs();
+  await fetchBlogs(route.params.group, (val) => {
+    blogsLyst.value = val;
+  });
 });
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <div class="w-full">
+    <template v-if="blogsLyst.length">
+        <Blog v-for="blog in blogsLyst" :key="blog.id" :blog="blog" />
+    </template>
+    <template v-else>
+      <p>No blogs found.</p>
+    </template>
+  </div>
+</template>
