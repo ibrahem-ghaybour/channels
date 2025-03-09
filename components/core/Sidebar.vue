@@ -3,11 +3,19 @@
     class="w-[theme(spacing.sidebar)] fixed top-0 h-dvh bg-sidebar text-primaryText flex flex-col"
   >
     <!-- Logo -->
-    <div class="p-4 text-xl font-bold flex items-center">Nuxt Community</div>
+    <div class="p-4 text-xl font-bold flex items-center">Ibrahim_ghaybour</div>
 
     <!-- Menu Items -->
     <nav class="flex-1">
-      <ul class="px-2">
+      <div class="text-center text-[2rem]" v-if="groupStore?.loading">
+        <span>
+          <font-awesome-icon
+            class="transition-all animate-spin"
+            :icon="'spinner'"
+          />
+        </span>
+      </div>
+      <ul v-else class="px-2">
         <li
           @click.self="console.log('')"
           class="relative group my-1 hover:bg-[#404249] transition duration-200 flex items-center rounded-[5px]"
@@ -46,10 +54,14 @@
 </template>
 
 <script setup>
-import { faCommentDots, faGear } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCommentDots,
+  faGear,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-library.add(faCommentDots, faGear);
+library.add(faCommentDots, faGear, faSpinner);
 
 const showSetting = ref(false);
 const selectedGroupId = ref(null);
@@ -57,7 +69,7 @@ const groupStore = useGroupStore();
 const groups = computed(() => groupStore.groupsArray);
 
 const openSettings = (id) => {
-  console.log(id)
+  console.log(id);
   selectedGroupId.value = id;
   showSetting.value = true;
 };

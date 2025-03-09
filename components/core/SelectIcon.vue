@@ -44,5 +44,5 @@ const selectOption = (option) => {
 </script>
 
 <style>
-/* تحسين تأثير الأنيميشن */
+
 </style>

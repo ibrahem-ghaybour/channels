@@ -3,9 +3,15 @@ export default defineNuxtConfig({
   // app: {
   //   pageTransition: { name: "fade", mode: "out-in" },
   // },
-  compatibilityDate: "2024-11-01",
+  // {
+  //   "extends": "./.nuxt/tsconfig.json",
+  //   "compilerOptions": {
+  //     "types": ["vue"]
+  //   }
+  // }
+  compatibilityDate: "2025-03-09",
   devtools: { enabled: true },
-  css: ["~/assets/scss/main.scss"],
+  css: ["~/assets/scss/main.scss",'quill/dist/quill.snow.css'],
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   googleFonts: {
     families: {

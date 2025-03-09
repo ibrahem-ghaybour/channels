@@ -4,8 +4,8 @@
   --primary: #313338;
   --primaryText: #dbdee1;
   --input: #1e1f22;
+  --blog: #393c41;
 }
-/* تخصيص الـ Scrollbar لكل الصفحة باستخدام SCSS */
 * {
   &::-webkit-scrollbar {
     width: 5px;
