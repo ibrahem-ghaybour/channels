@@ -7,13 +7,19 @@ useHead({
 const route = useRoute();
 const { fetchBlogs, clearBlogs } = useBlogsStore();
 const { getGroupById } = useGroupStore();
-const isOpenBlog = false;
-const blogsLyst = ref([]);
 const group = computed(() => getGroupById(route.params.group));
+const isOpenBlog = false;
+const blogsList = ref([]);
+const showCollapse = ref(false);
+const idBlog = ref("");
+const showCollapsBlog = (id) => {
+  showCollapse.value = true;
+  idBlog.value = id;
+};
 onMounted(async () => {
   clearBlogs();
   await fetchBlogs(route.params.group, (val) => {
-    blogsLyst.value = val;
+    blogsList.value = val;
   });
 });
 </script>
@@ -22,46 +28,56 @@ onMounted(async () => {
   <div
     class="w-full groupClient !relative h-screen pt-3 grid grid-cols-8 gap-x-3 !overflow-hidden"
   >
-    <!-- Left Column -->
-    <section class="col-span-5 !relative flex flex-col h-screen">
+    <section
+      :class="[
+        '!relative flex flex-col h-screen',
+        showCollapse ? 'col-span-5' : 'col-span-8',
+      ]"
+    >
       <div
         class="p-2 bg-sidebar flex items-end font-bold w-[calc(100%-8px)] h-[50px] rounded-se-md overflow-hidden"
       >
         {{ group?.name }}
       </div>
-      <!-- Scrollable Content Area -->
       <div class="flex-1 overflow-y-auto">
-        <template v-if="blogsLyst.length">
+        <template v-if="blogsList.length">
           <section
             class="bg-primary w-full min-h-[calc(100vh-50px)] overflow-x-hidden pt-[30px] px-3"
           >
-            <Blog v-for="blog in blogsLyst" :key="blog.id" :blog="blog" />
+            <div
+              v-for="blog in blogsList"
+              :key="blog.id"
+              @click="showCollapsBlog(blog.id)"
+            >
+              <Blog :blog="blog" />
+            </div>
+            <!--  -->
           </section>
         </template>
         <template v-else>
           <p>No blogs found.</p>
         </template>
       </div>
-
-      <!-- Fixed Bottom Bar (inside this column) -->
       <div class="p-2 bg-primary w-[calc(100%-8px)] overflow-hidden">
         <div class="bg-blog w-full h-[50px] capitalize p-3 rounded-lg">
-          Share and enjoy interacting with friends. Always stay in touch 😉.
+          Share and enjoy interacting with friends. Always stay in touch 😉.{{
+            showCollapse
+          }}
         </div>
       </div>
     </section>
-
-    <!-- Right Column -->
-    <section class="bg-primary col-span-3 rounded-s-md overflow-hidden">
-      <div
-        class="p-2 bg-sidebar flex items-end font-bold w-[calc(100%-8px)] h-[50px] overflow-hidden"
-      >
-        {{ group?.name }}
+    <CoreCollapse
+      @close="showCollapse = false"
+      :class="[
+        showCollapse
+          ? 'bg-primary col-span-3 rounded-s-md overflow-hidden'
+          : '',
+      ]"
+      ><template #header> {{ group?.name }}{{ showCollapse }} </template>
+      <div>
+        <BlogCollapse class="" />
       </div>
-      <BlogCollapse class="" />
-    </section>
-
-    <!-- Popup -->
+    </CoreCollapse>
     <CorePopup class="popupEditorText" v-model:isOpen="isOpenBlog">
       <CoreEditorText
         class="mb-2"

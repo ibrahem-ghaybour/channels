@@ -15,12 +15,16 @@
             parentClass,
           ]"
         >
-          <button
+          <!-- <button
             @click="close"
             class="absolute top-2 right-2 text-2xl leading-none hover:opacity-40 opacity-60 text-primaryText transition-colors duration-200"
           >
             <font-awesome-icon icon="circle-xmark" />
-          </button>
+          </button> -->
+          <CoreCloseButton
+            class="rounded-full border w-7 h-7 text-[14px] flex justify-center items-center"
+            @click="close"
+          ></CoreCloseButton>
           <slot></slot>
         </div>
       </Transition>
