@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full blogTextVaueEdit group relative bg-blog rounded-lg p-3 my-3 shadow-lg transition-all cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
+    class="w-full  blogTextVaueEdit group relative  bg-blog rounded-lg p-3 my-3 shadow-lg transition-all !cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
   >
     <CoreTooltip
       @click="isOpenEdit = true"
@@ -12,14 +12,8 @@
     <div
       v-html="contentHTML"
       ref="textHtml"
-      class="ql-editor multiline-truncate !h-[120px]"
+      class="ql-editor multiline-truncate content-container !h-[120px]"
     ></div>
-    <!-- <CoreEditorText
-      class="mb-2"
-      :textEdit="title"
-      @update:edit="updateEdiorText"
-    />
-    <CoreButton @click="save = true">save</CoreButton> -->
   </div>
   <CorePopup
     class="popupEditorText"
@@ -91,8 +85,14 @@ watch(
 <style lang="scss">
 .blogTextVaueEdit {
   @import "@/assets/scss/textSi.scss";
+  user-select: none !important;
+  cursor: pointer !important;
 }
 .popupEditorText {
   @import "@/assets/scss/editorText.scss";
+  user-select: none  !important;
+  cursor: pointer !important;
+
+
 }
 </style>

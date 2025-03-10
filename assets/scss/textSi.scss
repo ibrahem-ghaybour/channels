@@ -1,17 +1,32 @@
-.ql-editor.ql-blank::before {
-    color: #888; /* placeholder text color */
+.ql-editor {
+    position: relative;
+    * {
+      cursor: pointer !important;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+    ol {
+      list-style-type: decimal;
+    }
+    ul {
+      list-style-type: disc;
+    }
+    .ql-blank::before {
+      color: #888; /* placeholder text color */
+    }
   }
-  .ql-editor h1 {
-    font-size: 2em;
+  
+  .content-container a {
+    color: #3498db; /* or blue */
+    text-decoration: underline; /* optional */
   }
-  .ql-editor h2 {
-    font-size: 1.5em;
-  }
-  .ql-editor ol {
-    list-style-type: decimal;
-  }
-  .ql-editor ul {
-    list-style-type: disc;
+  
+  .content-container a:hover {
+    color: #2980b9;
   }
   .multiline-truncate {
     display: -webkit-box;
