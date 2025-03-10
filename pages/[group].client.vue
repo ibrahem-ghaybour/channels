@@ -42,8 +42,12 @@ onMounted(async () => {
       <div class="flex-1 overflow-y-auto">
         <template v-if="blogsList.length">
           <section
-            class="bg-primary w-full min-h-[calc(100vh-50px)] overflow-x-hidden pt-[30px] px-3"
+            class="bg-primary w-full h-[calc(100vh-50px)] overflow-x-hidden pt-[30px] px-3"
           >
+          <!-- <section
+  class="bg-primary w-full h-[calc(100vh-50px)] overflow-y-auto overflow-x-hidden pt-[30px] px-3"
+>
+ -->
             <div
               v-for="blog in blogsList"
               :key="blog.id"

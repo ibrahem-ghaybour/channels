@@ -12,12 +12,13 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    @apply rounded-xl bg-[#1A1B1E];
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
   }
 
   &::-webkit-scrollbar-track {
-    // background-color: #222;
-    @apply bg-sidebar my-3 rounded-xl;
+    background: transparent;
+    margin:20px 0px;
   }
 }
 body {
