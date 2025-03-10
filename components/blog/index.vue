@@ -1,11 +1,11 @@
 <template>
   <div
-    class="w-full  blogTextVaueEdit group relative  bg-blog rounded-lg p-3 my-3 shadow-lg transition-all !cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
+    class="w-full blogTextVaueEdit group relative bg-blog rounded-lg p-3 mb-3 shadow-lg transition-all !cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
   >
     <CoreTooltip
       @click="isOpenEdit = true"
       :data-tooltip="'Edit Blog'"
-      class="opacity-0 !absolute top-2 end-2 !transition-opacity !duration-300 group-hover:opacity-100"
+      class="opacity-0 !absolute top-2 end-4 !transition-opacity !duration-300 group-hover:opacity-100"
     >
       <font-awesome-icon icon="gear" />
     </CoreTooltip>
@@ -87,12 +87,15 @@ watch(
   @import "@/assets/scss/textSi.scss";
   user-select: none !important;
   cursor: pointer !important;
+  .ql-editor {
+    * {
+      cursor: pointer !important;
+    }
+  }
 }
 .popupEditorText {
   @import "@/assets/scss/editorText.scss";
-  user-select: none  !important;
+  user-select: none !important;
   cursor: pointer !important;
-
-
 }
 </style>

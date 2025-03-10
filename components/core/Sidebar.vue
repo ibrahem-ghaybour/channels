@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="w-[theme(spacing.sidebar)] z-50 fixed top-0 h-dvh bg-sidebar text-primaryText flex flex-col"
+    class="w-[theme(spacing.sidebar)] z-50 fixed top-3 h-dvh bg-sidebar text-primaryText flex flex-col"
   >
     <!-- Logo -->
     <div class="p-4 text-xl font-bold flex items-center">Ibrahim_ghaybour</div>
