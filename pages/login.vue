@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-[#313338] p-4">
+  <div class="min-h-screen flex items-center justify-center p-4">
     <AuthLgoin />
   </div>
 </template>
