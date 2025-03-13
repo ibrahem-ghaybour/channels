@@ -1,11 +1,11 @@
 <template>
   <div class="w-full">
-    <label class="block w-full mb-1 font-semibold !text-[0.7rem]" for="nameChannel">
+    <label class="block w-full mb-1 font-semibold !text-[0.7rem]" :for="forId">
       {{ label }}
     </label>
     <input
       class="bg-input w-full"
-      id="nameChannel"
+      :id="forId"
       :type="typeInput"
       :maxlength="`${typeInput === 'text' ? '30' : '124'}`"
       minlength="3"
@@ -29,6 +29,7 @@ const props = defineProps({
     type: String,
     default: "text",
   },
+  forId: String,
 });
 const emit = defineEmits(["update:modelValue"]);
 </script>
