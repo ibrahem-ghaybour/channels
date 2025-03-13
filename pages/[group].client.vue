@@ -5,7 +5,7 @@ useHead({
 });
 
 const route = useRoute();
-const { fetchBlogs, clearBlogs } = useBlogsStore();
+const { fetchBlogs, clearBlogs, getBlogById, addBlog } = useBlogsStore();
 const { getGroupById } = useGroupStore();
 const group = computed(() => getGroupById(route.params.group));
 const isOpenBlog = false;
@@ -16,6 +16,7 @@ const showCollapsBlog = (id) => {
   showCollapse.value = true;
   idBlog.value = id;
 };
+const blogSt = computed(() => getBlogById(idBlog.value));
 onMounted(async () => {
   clearBlogs();
   await fetchBlogs(route.params.group, (val) => {
@@ -44,17 +45,12 @@ onMounted(async () => {
           <section
             class="bg-primary w-full h-[calc(100vh-50px)] overflow-x-hidden pt-[30px] px-3"
           >
-          <!-- <section
-  class="bg-primary w-full h-[calc(100vh-50px)] overflow-y-auto overflow-x-hidden pt-[30px] px-3"
->
- -->
-            <div
+            <Blog
               v-for="blog in blogsList"
               :key="blog.id"
-              @click="showCollapsBlog(blog.id)"
-            >
-              <Blog :blog="blog" />
-            </div>
+              @openDetails="showCollapsBlog(blog.id)"
+              :blog="blog"
+            />
             <!--  -->
           </section>
         </template>
@@ -63,7 +59,16 @@ onMounted(async () => {
         </template>
       </div>
       <div class="p-2 bg-primary w-[calc(100%-8px)] overflow-hidden">
-        <div class="bg-blog w-full h-[50px] capitalize p-3 rounded-lg">
+        <div
+          @click="
+            addBlog({
+              userName: 'string',
+              title: 'string',
+              groupId: route.params.group,
+            })
+          "
+          class="bg-blog w-full cursor-pointer h-[50px] capitalize p-3 mb-5 rounded-lg"
+        >
           Share and enjoy interacting with friends. Always stay in touch 😉.{{
             showCollapse
           }}
@@ -71,17 +76,19 @@ onMounted(async () => {
       </div>
     </section>
     <CoreCollapse
+      v-if="showCollapse"
       @close="showCollapse = false"
       :class="[
         showCollapse
           ? 'bg-primary col-span-3 rounded-s-md overflow-hidden'
           : '',
       ]"
-      ><template #header> {{ group?.name }}{{ showCollapse }} </template>
+      ><template #header> {{ blogSt?.userName }}</template>
       <div>
-        <BlogCollapse class="" />
+        <BlogDetiels :idBlog="idBlog" />
       </div>
     </CoreCollapse>
+
     <CorePopup class="popupEditorText" v-model:isOpen="isOpenBlog">
       <CoreEditorText
         class="mb-2"

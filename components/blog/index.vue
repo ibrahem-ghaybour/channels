@@ -1,9 +1,10 @@
 <template>
   <div
-    class="w-full blogTextVaueEdit group relative bg-blog rounded-lg p-3 mb-3 shadow-lg transition-all !cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
+    @click="emit('openDetails')"
+    class="w-full blogTextVaueEdit h-[140px] group relative bg-blog rounded-lg p-3 mb-3 shadow-lg transition-all !cursor-pointer hover:-translate-y-1 hover:shadow-2xl"
   >
     <CoreTooltip
-      @click="isOpenEdit = true"
+      @click.stop="isOpenEdit = true"
       :data-tooltip="'Edit Blog'"
       class="opacity-0 !absolute top-2 end-4 !transition-opacity !duration-300 group-hover:opacity-100"
     >
@@ -12,7 +13,7 @@
     <div
       v-html="contentHTML"
       ref="textHtml"
-      class="ql-editor multiline-truncate content-container !h-[120px]"
+      class="ql-editor multiline-truncate !line-clamp-2"
     ></div>
   </div>
   <CorePopup
@@ -34,7 +35,7 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faCaretDown);
-
+const emit = defineEmits("openDetails");
 import Quill from "quill";
 
 const isOpenEdit = ref(false);
