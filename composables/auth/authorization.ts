@@ -5,7 +5,6 @@ export const loginResponse = async ({
   email: string;
   password: string;
 }) =>
-  //   collback: (res: any) => any
   {
     const { success, data, error } = await useApiRequest({
       method: "POST",
