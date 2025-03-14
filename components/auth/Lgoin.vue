@@ -49,10 +49,16 @@
 <script setup>
 const rememberMe = ref(false);
 const userInput = ref({});
-const { login, user } = useAuthStore();
+const userAutth = useAuthStore();
+const { user } = storeToRefs(userAutth);
 const handleLogin = async () => {
-  login({ ...userInput.value });
+  userAutth.login({ ...userInput.value });
 };
+watch(user, () => {
+  if (user.value) {
+    return navigateTo("/");
+  }
+});
 </script>
 
 <style lang="scss" scoped></style>

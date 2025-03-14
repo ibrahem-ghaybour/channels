@@ -2,7 +2,7 @@ interface propFetch {
   endpoint: string;
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   body?: any | null;
-  // token: string;
+  token?: string;
 }
 const getHeaders = () => {
   // const API_KEY: string = getApiKey();
@@ -17,7 +17,7 @@ export const useApiRequest = async (obj: propFetch) => {
     const URL_API_AUTH: string = useApiUrl();
     const headers = {
       ...getHeaders(),
-      // Authorization: `Bearer ${obj.token}`,
+      ...(obj.token && { Authorization: `Bearer ${obj.token}` }),
     };
 
     const response = await $fetch(`${URL_API_AUTH}/${obj.endpoint}`, {
