@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   // }
   compatibilityDate: "2025-03-09",
   devtools: { enabled: true },
-  css: ["~/assets/scss/main.scss",'quill/dist/quill.snow.css'],
+  css: ["~/assets/scss/main.scss", "quill/dist/quill.snow.css"],
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/google-fonts"],
   googleFonts: {
     families: {
@@ -25,6 +25,10 @@ export default defineNuxtConfig({
     public: {
       apiUrl: process.env.NUXT_GLOPAL_API_URL,
     },
+  },
+  routeRules: {
+    // تطبيق الميدل وير على كل الصفحات تلقائيًا
+    middleware: ["global-auth"],
   },
 });
 // <font-awesome-icon :icon="['fab', 'rocketchat']" />
