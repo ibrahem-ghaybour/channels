@@ -50,12 +50,12 @@
 const rememberMe = ref(false);
 const userInput = ref({});
 const userAutth = useAuthStore();
-const { user } = storeToRefs(userAutth);
+const { token } = storeToRefs(userAutth);
 const handleLogin = async () => {
   userAutth.login({ ...userInput.value });
 };
-watch(user, () => {
-  if (user.value) {
+watch(token, () => {
+  if (token.value) {
     return navigateTo("/");
   }
 });
